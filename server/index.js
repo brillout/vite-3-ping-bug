@@ -20,7 +20,7 @@ async function startServer() {
     const viteDevMiddleware = (
       await vite.createServer({
         root,
-        server: { middlewareMode: 'ssr' },
+        server: { middlewareMode: 'ssr' }
       })
     ).middlewares
     app.use(viteDevMiddleware)
@@ -28,8 +28,13 @@ async function startServer() {
 
   app.get('*', async (req, res, next) => {
     const url = req.originalUrl
+    if (url === '/__vite_ping') {
+      console.log('url: ', url)
+      console.log("Why wasn't intercepted by Vite's dev middleware?")
+      return
+    }
     const pageContextInit = {
-      url,
+      url
     }
     const pageContext = await renderPage(pageContextInit)
     const { httpResponse } = pageContext

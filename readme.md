@@ -1,8 +1,8 @@
 Bug reproduction.
 
 ```bash
-git clone git@github.com:brillout/vite-3-prebundler-bug
-cd vite-3-prebundler-bug/
+git clone git@github.com:brillout/vite3-ping-bug
+cd vite3-ping-bug/
 pnpm install
 pnpm run dev
 ```
@@ -10,12 +10,13 @@ pnpm run dev
 Same as single line (copy-paste me):
 
 ```shell
-git clone git@github.com:brillout/vite-3-prebundler-bug && cd vite-3-prebundler-bug/ && pnpm install && pnpm run dev
+git clone git@github.com:brillout/vite3-ping-bug && cd vite3-ping-bug/ && pnpm install && pnpm run dev
 ```
 
 Observe:
 
 ```
-11:22:24 AM [vite] ✨ new dependencies optimized: react, react-dom/client
-11:22:24 AM [vite] ✨ optimized dependencies changed. reloading
+Server running at http://localhost:3000
+url:  /__vite_ping
+Why wasn't intercepted by Vite's dev middleware?
 ```
